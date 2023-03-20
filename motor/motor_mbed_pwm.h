@@ -17,7 +17,7 @@ namespace sixtron {
 class MotorMbedPWM: Motor {
 
 public:
-    MotorMbedPWM(float rateHz,
+    MotorMbedPWM(float rate_dt,
             MotorSensor *sensor,
             PinName dir,
             PinName pwm,

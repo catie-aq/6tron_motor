@@ -6,13 +6,13 @@
 
 namespace sixtron {
 
-MotorMbedPWM::MotorMbedPWM(float rateHz,
+MotorMbedPWM::MotorMbedPWM(float rate_dt,
         MotorSensor *sensor,
         PinName dir,
         PinName pwm,
         PID_params motor_pid,
         float max_pwm):
-        _pid(motor_pid, rateHz), _sensor(sensor), _dir(dir), _pwm(pwm)
+        _pid(motor_pid, rate_dt), _sensor(sensor), _dir(dir), _pwm(pwm)
 {
 
     _dir.write(0);
