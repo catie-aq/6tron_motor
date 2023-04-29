@@ -2,27 +2,21 @@
  * Copyright (c) 2023, CATIE
  * SPDX-License-Identifier: Apache-2.0
  */
-#ifndef CATIE_SIXTRON_MOTOR_MBED_PWM_H
-#define CATIE_SIXTRON_MOTOR_MBED_PWM_H
+#ifndef CATIE_SIXTRON_MOTOR_DC_H
+#define CATIE_SIXTRON_MOTOR_DC_H
 
 #include "mbed.h"
 #include "motor/motor.h"
-#include "motor_sensor/motor_sensor.h"
 #include "pid/pid.h"
 
 namespace sixtron {
 
-#define DEFAULT_MOTOR_MAX_PWM 1.0f // max PWM with mbed is 1.0f
+#define DEFAULT_MOTOR_MAX_PWM 1.0f
 
-class MotorMbedPWM: Motor {
+class MotorDC: Motor {
 
 public:
-    MotorMbedPWM(float rate_dt,
-            MotorSensor *sensor,
-            PinName dir,
-            PinName pwm,
-            PID_params motor_pid,
-            float max_pwm = DEFAULT_MOTOR_MAX_PWM);
+    MotorDC(float rate_dt, PID_params motor_pid, float max_pwm = DEFAULT_MOTOR_MAX_PWM);
 
     void init() override;
 
@@ -36,12 +30,13 @@ public:
 
     float getSpeed() override;
 
+protected:
+    virtual void initHardware() = 0;
+    virtual void setPWM(float pwm) = 0; // should be between -1.0f and +1.0f !
+    virtual float getSensorSpeed() = 0; // Should be in m/s !
+
 private:
     PID _pid;
-    MotorSensor *_sensor;
-    DigitalOut _dir;
-    PwmOut _pwm;
-
     motor_status _currentStatus;
     float _targetSpeed = 0.0f;
     float _currentSpeed = 0.0f;
@@ -50,4 +45,4 @@ private:
 
 } // namespace sixtron
 
-#endif // CATIE_SIXTRON_MOTOR_MBED_PWM_H
+#endif // CATIE_SIXTRON_MOTOR_DC_H
