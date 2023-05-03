@@ -35,7 +35,6 @@ protected:
     virtual void setPWM(float pwm) = 0; // should be between -1.0f and +1.0f !
     virtual float getSensorSpeed() = 0; // Should be in m/s !
 
-private:
     PID _pid;
     motor_status _currentStatus;
     float _targetSpeed = 0.0f;
