@@ -24,6 +24,8 @@ public:
 
     void stop() override;
 
+    void standby() override;
+
     void update() override;
 
     void setSpeed(float speed_ms) override;

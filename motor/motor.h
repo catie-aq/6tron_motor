@@ -24,6 +24,8 @@ public:
 
     virtual void stop() = 0;
 
+    virtual void standby() = 0;
+
     virtual void update() = 0; // Update Motor Output. Useful when pid is done in soft by user and
                                // not by motor hardware.
 

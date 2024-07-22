@@ -32,6 +32,13 @@ void MotorDC::stop()
     }
 }
 
+void MotorDC::standby()
+{
+    _pid.reset();
+    _motorPwm = 0.0f;
+    setPWM(_motorPwm);
+}
+
 void MotorDC::update()
 {
     _currentSpeed = getSensorSpeed();
