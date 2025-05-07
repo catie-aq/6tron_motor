@@ -1,0 +1,35 @@
+{
+    "name": "Motor",
+    "version": "0.0.1",
+    "description": "Motor Library",
+    "keywords": "motor, DC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/catie-aq/6tron_motor.git"
+    },
+    "authors": [
+        {
+            "name": "CATIE",
+            "email": "contact@catie.fr",
+            "url": "https://www.catie.fr/"
+        },
+        {
+            "name": "CopperBot",
+            "url": "https://github.com/Copper-Bot",
+            "maintainer": true
+        }
+    ],
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/catie-aq/6tron_motor",
+    "frameworks": "*",
+    "platforms": "*",
+    "headers": [
+        "motor.h"
+    ],
+    "build": {
+        "includeDir": ".",
+        "flags": [
+            "-I motor"
+        ]
+    }
+}

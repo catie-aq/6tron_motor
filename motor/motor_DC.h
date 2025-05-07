@@ -5,7 +5,6 @@
 #ifndef CATIE_SIXTRON_MOTOR_DC_H
 #define CATIE_SIXTRON_MOTOR_DC_H
 
-#include "mbed.h"
 #include "motor/motor.h"
 #include "pid/pid.h"
 
